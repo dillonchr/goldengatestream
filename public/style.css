@@ -1,0 +1,38 @@
+:root {
+  --orange: #EF4D2B;
+  --deep-orange: #B41515;
+}
+
+html,
+body {
+  font-size: 16px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: var(--orange);
+  font-size: 3rem;
+}
+
+#display {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+a:link,
+a:visited:hover {
+  color: var(--orange);
+}
+
+a:visited,
+a:hover {
+  color: var(--deep-orange);
+}
+
+@media (min-width: 700px) {
+  #display {
+    width: 650px;
+  }
+}
