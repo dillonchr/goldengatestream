@@ -2,11 +2,17 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const app = express();
-const { generateGif } = require('./gg.js');
+const { generateGif, getLastCachedGif } = require('./gg.js');
 
 app.use(express.static('public'));
 
 app.get('/gif', (req, res) => {
+  if (req.query.hasOwnProperty('cached')) {
+    const lastGif = getLastCachedGif();
+    if (lastGif) {
+      return res.sendFile(lastGif);
+    }
+  }
   generateGif((err, gifPath) => {
     if (err) {
       res.status(500);

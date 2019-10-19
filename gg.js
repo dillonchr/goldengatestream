@@ -8,6 +8,10 @@ const clearGifPath = () => {
   currentGifPath = null;
 };
 
+const getLastCachedGif = () => {
+  return currentGifPath || pastGifs[-1];
+};
+
 const generateGif = (callback) => {
   if (currentGifPath) {
     return callback(null, currentGifPath);
@@ -29,4 +33,5 @@ const generateGif = (callback) => {
 
 module.exports = {
   generateGif,
+  getLastCachedGif,
 };
