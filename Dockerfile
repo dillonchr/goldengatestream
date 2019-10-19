@@ -1,8 +1,7 @@
 FROM mhart/alpine-node:12.2
 RUN apk update && apk upgrade && apk add curl git file imagemagick
 WORKDIR /code/
-RUN yarn global add nodemon
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
-CMD nodemon index.js
+CMD ["node", "index.js"]
